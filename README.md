@@ -44,3 +44,7 @@ ros2 run teleop_twist_keyboard teleop_twist_keyboard
 
 ### 解决方案
 参考 [ssh端口转发](https://github.com/chiway-luo/ssh-x11-forwarding-guide.git) , 将仿真环境部署在远程服务器上,通过ssh连接进行仿真环境的使用
+
+## 二次开发建议
+
+简化urdf的碰撞文件,可以极大减小控制器的加载时间,降低因为性能原因的启动失败问题

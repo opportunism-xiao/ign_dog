@@ -34,15 +34,6 @@
           rgba="1 1 1 1" />
       </material>
     </visual>
-    <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://agibot_d1_top_description/meshes/base_link_top.STL" />
-      </geometry>
-    </collision>
   </link>
   <link
     name="camera">
@@ -74,15 +65,6 @@
           rgba="1 1 1 1" />
       </material>
     </visual>
-    <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://agibot_d1_top_description/meshes/camera.STL" />
-      </geometry>
-    </collision>
   </link>
   <joint
     name="base2camera"
@@ -127,15 +109,6 @@
           rgba="1 1 1 1" />
       </material>
     </visual>
-    <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://agibot_d1_top_description/meshes/laser.STL" />
-      </geometry>
-    </collision>
   </link>
   <joint
     name="base2laser"
@@ -168,6 +141,22 @@
   </joint>
 
   <link
+    name="laser_device_frame">
+  </link>
+
+  <joint
+    name="laser_device_frame_joint"
+    type="fixed">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="laser" />
+    <child
+      link="laser_device_frame" />
+  </joint>
+
+  <link
     name="laser_up">
   </link>
 
@@ -175,10 +164,10 @@
     name="laser_up_joint"
     type="fixed">
     <origin
-      xyz="0 0 0"
+      xyz="0.0 0 0.15"
       rpy="0 0 0" />
     <parent
-      link="laser" />
+      link="base_link" />
     <child
       link="laser_up" />
   </joint>

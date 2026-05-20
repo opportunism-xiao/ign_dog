@@ -34,13 +34,10 @@
       </material>
     </visual>
     <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://agibot_d1_top_description/meshes/BASE_LINK.STL" />
-      </geometry>
+      <origin xyz="0.01424 0 0.04" rpy="0 0 0"/>
+        <geometry>
+          <box size="0.4 0.1 0.05"/>
+        </geometry>
     </collision>
   </link>
   <link  name="FL_ABAD_LINK">
@@ -73,12 +70,9 @@
       </material>
     </visual>
     <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
+      <origin xyz="-0.04 -0.017 0.04" rpy="0 0 0"/>
       <geometry>
-        <mesh
-          filename="package://agibot_d1_top_description/meshes/FL_ABAD_LINK.STL" />
+        <box size="0.1 0.07 0.07"/>
       </geometry>
     </collision>
   </link>
@@ -129,12 +123,9 @@
       </material>
     </visual>
     <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
+      <origin xyz="-0.003 -0.06 -0.08" rpy="0 0 0"/>
       <geometry>
-        <mesh
-          filename="package://agibot_d1_top_description/meshes/FL_HIP_LINK.STL" />
+        <box size="0.08392 0.17199 0.25400"/>
       </geometry>
     </collision>
   </link>
@@ -187,12 +178,9 @@
       </material>
     </visual>
     <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
+      <origin xyz="0.02160 0 -0.08839" rpy="0 0 0"/>
       <geometry>
-        <mesh
-          filename="package://agibot_d1_top_description/meshes/FL_KNEE_LINK.STL" />
+        <box size="0.03481 0.02000 0.11477"/>
       </geometry>
     </collision>
   </link>
@@ -245,12 +233,9 @@
       </material>
     </visual>
     <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
+      <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh
-          filename="package://agibot_d1_top_description/meshes/FL_FOOT_LINK.STL" />
+        <sphere radius="0.02"/>
       </geometry>
     </collision>
   </link>
@@ -298,12 +283,9 @@
       </material>
     </visual>
     <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
+      <origin xyz="-0.04 0.017 0.04" rpy="0 0 0"/>
       <geometry>
-        <mesh
-          filename="package://agibot_d1_top_description/meshes/FR_ABAD_LINK.STL" />
+        <box size="0.1 0.07 0.07"/>
       </geometry>
     </collision>
   </link>
@@ -356,12 +338,9 @@
       </material>
     </visual>
     <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
+      <origin xyz="-0.003 0.06 -0.08" rpy="0 0 0"/>
       <geometry>
-        <mesh
-          filename="package://agibot_d1_top_description/meshes/FR_HIP_LINK.STL" />
+        <box size="0.08392 0.17199 0.25400"/>
       </geometry>
     </collision>
   </link>
@@ -414,12 +393,9 @@
       </material>
     </visual>
     <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
+      <origin xyz="0.02160 0 -0.08839" rpy="0 0 0"/>
       <geometry>
-        <mesh
-          filename="package://agibot_d1_top_description/meshes/FR_KNEE_LINK.STL" />
+        <box size="0.03481 0.02000 0.11477"/>
       </geometry>
     </collision>
   </link>
@@ -472,12 +448,9 @@
       </material>
     </visual>
     <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
+      <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh
-          filename="package://agibot_d1_top_description/meshes/FR_FOOT_LINK.STL" />
+        <sphere radius="0.02"/>
       </geometry>
     </collision>
   </link>
@@ -525,12 +498,9 @@
       </material>
     </visual>
     <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
+      <origin xyz="0.04 -0.017 0.04" rpy="0 0 0"/>
       <geometry>
-        <mesh
-          filename="package://agibot_d1_top_description/meshes/RR_ABAD_LINK.STL" />
+        <box size="0.1 0.07 0.07"/>
       </geometry>
     </collision>
   </link>
@@ -583,12 +553,9 @@
       </material>
     </visual>
     <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
+      <origin xyz="-0.003 -0.06 -0.08" rpy="0 0 0"/>
       <geometry>
-        <mesh
-          filename="package://agibot_d1_top_description/meshes/RR_HIP_LINK.STL" />
+        <box size="0.08392 0.17199 0.25400"/>
       </geometry>
     </collision>
   </link>
@@ -641,12 +608,9 @@
       </material>
     </visual>
     <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
+      <origin xyz="0.02160 0 -0.08839" rpy="0 0 0"/>
       <geometry>
-        <mesh
-          filename="package://agibot_d1_top_description/meshes/RR_KNEE_LINK.STL" />
+        <box size="0.03481 0.02000 0.11477"/>
       </geometry>
     </collision>
   </link>
@@ -699,12 +663,9 @@
       </material>
     </visual>
     <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
+      <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh
-          filename="package://agibot_d1_top_description/meshes/RR_FOOT_LINK.STL" />
+        <sphere radius="0.02"/>
       </geometry>
     </collision>
   </link>
@@ -752,12 +713,9 @@
       </material>
     </visual>
     <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
+      <origin xyz="0.04 0.017 0.04" rpy="0 0 0"/>
       <geometry>
-        <mesh
-          filename="package://agibot_d1_top_description/meshes/RL_ABAD_LINK.STL" />
+        <box size="0.1 0.07 0.07"/>
       </geometry>
     </collision>
   </link>
@@ -810,12 +768,9 @@
       </material>
     </visual>
     <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
+      <origin xyz="-0.003 0.06 -0.08" rpy="0 0 0"/>
       <geometry>
-        <mesh
-          filename="package://agibot_d1_top_description/meshes/RL_HIP_LINK.STL" />
+        <box size="0.08392 0.17199 0.25400"/>
       </geometry>
     </collision>
   </link>
@@ -868,12 +823,9 @@
       </material>
     </visual>
     <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
+      <origin xyz="0.02160 0 -0.08839" rpy="0 0 0"/>
       <geometry>
-        <mesh
-          filename="package://agibot_d1_top_description/meshes/RL_KNEE_LINK.STL" />
+        <box size="0.03481 0.02000 0.11477"/>
       </geometry>
     </collision>
   </link>
@@ -926,12 +878,9 @@
       </material>
     </visual>
     <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
+      <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh
-          filename="package://agibot_d1_top_description/meshes/RL_FOOT_LINK.STL" />
+        <sphere radius="0.02"/>
       </geometry>
     </collision>
   </link>
