@@ -3,7 +3,7 @@
 ## 使用方式
 - 克隆本仓库
 ```bash
-git clone https://github.com/chiway-luo/ign_robot_dog.git -b 暂定
+git clone https://github.com/chiway-luo/ign_robot_dog.git -b ign_agibot_d1_SuZhouResearchInstituteUpperClothing
 ```
 - 安装依赖
 ```
