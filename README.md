@@ -16,9 +16,10 @@ sudo apt install ros-humble-velodyne
 sudo apt install ros-humble-velodyne-gazebo-plugins
 sudo apt-get install ros-humble-velodyne-description
 ```
+
 - ign_gazebo节点 + 导航(包含cartographer)
 ```
-ros2 launch sim_ign_dog d1_gazebo_sim_dog.launch.py 
+ros2 launch sim_ign_dog d1_gazebo_sim_dog_nav2.launch.py 
 ```
 > 考虑到稳定性启动的问题,按依赖启动耗时较长(预计10s),请耐心等待;如启动失败请调节urdf中的激光雷达线束数量
 - [urdf 第1019行](src/sim_dog/edu_description/urdf/edu.urdf)
@@ -29,6 +30,11 @@ ros2 launch sim_ign_dog d1_gazebo_sim_dog.launch.py
 ros2 run teleop_twist_keyboard teleop_twist_keyboard
 ```
 ![](.docs/image.png)
+
+如果需要只使用改仿真环境,不使用导航等功能,可以直接运行
+```bash
+ros2 launch sim_ign_dog d1_gazebo_sim_dog.launch.py 
+```
 ## 参考仓库
 - [anujjain-dev/unitree-go2-ros2](https://github.com/anujjain-dev/unitree-go2-ros2.git)
 
