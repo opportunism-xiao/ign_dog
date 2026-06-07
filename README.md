@@ -7,14 +7,22 @@ git clone https://github.com/chiway-luo/ign_robot_dog.git -b ign_agibot_d1_SuZho
 ```
 - 安装依赖
 ```
-sudo apt install ros-humble-gazebo-ros2-control
-sudo apt install ros-humble-xacro
-sudo apt install ros-humble-robot-localization
-sudo apt install ros-humble-ros2-controllers
-sudo apt install ros-humble-ros2-control
-sudo apt install ros-humble-velodyne
-sudo apt install ros-humble-velodyne-gazebo-plugins
-sudo apt-get install ros-humble-velodyne-description
+sudo apt install -y \
+  ros-humble-ros-gz \
+  ros-humble-gz-ros2-control \
+  ros-humble-ros2-control \
+  ros-humble-ros2-controllers \
+  ros-humble-navigation2 \
+  ros-humble-nav2-bringup \
+  ros-humble-cartographer-ros \
+  ros-humble-robot-localization \
+  ros-humble-rviz2 \
+  ros-humble-tf2-ros \
+  ros-humble-robot-state-publisher \
+  ros-humble-xacro \
+  ros-humble-joint-state-publisher \
+  ros-humble-joint-state-publisher-gui \
+  ros-humble-ros2launch
 ```
 
 - ign_gazebo节点 + 导航(包含cartographer)
