@@ -37,3 +37,12 @@
     z_rand: 0.5
     z_short: 0.05
     scan_topic: scan
+    # AMCL 启动后直接使用下面的 map 坐标初始位姿，不再等待 RViz 发布 /initialpose。
+    # 这里是 map 坐标系下的位姿，不是 Gazebo 世界坐标；如初始位置不对，优先调整 x/y/yaw。
+    set_initial_pose: true
+    always_reset_initial_pose: true
+    initial_pose:
+      x: 0.0
+      y: 0.0
+      z: 0.0
+      yaw: 0.0
