@@ -319,17 +319,46 @@ def generate_launch_description():
 
     #################
 
-    # 导航实现
-    nav2_launch = IncludeLaunchDescription(
+    # 启动 pointcloud_to_laserscan 节点
+    pointcloud_to_laserscan_launch = IncludeLaunchDescription(
         launch_description_source=PythonLaunchDescriptionSource(
-            os.path.join(
-                get_package_share_directory('sim_navigation2'),
-                'launch',
-                'nav2_bringup.launch.py'
-            )
-        )
+            os.path.join(get_package_share_directory('pointcloud_to_laserscan'),
+                        'launch',
+                        'pointcloud_to_laserscan.launch.py'
+        )),
     )
-    ld.add_action(nav2_launch)
+    ld.add_action(pointcloud_to_laserscan_launch)
+
+    # 启动 LaserScan 盒子过滤器，剔除机器人本体/近距离遮挡点
+    scan_box_filter_launch = IncludeLaunchDescription(
+        launch_description_source=PythonLaunchDescriptionSource(
+            os.path.join(get_package_share_directory('scan_box_filter'),
+                        'launch',
+                        'scan_box_filter.launch.py'
+        )),
+    )
+    ld.add_action(scan_box_filter_launch)
+
+    # 导航实现
+    # 包含导航功能的launch文件
+    nav2_base_launch = IncludeLaunchDescription(
+        launch_description_source=PythonLaunchDescriptionSource(
+            os.path.join(get_package_share_directory('sim_navigation2'), 
+                        'launch', 
+                        'nav2_online_map.launch.py'
+        )),
+    )
+    ld.add_action(nav2_base_launch)
+
+    #使用cartographer建图的launch文件
+    cartographer_launch = IncludeLaunchDescription(
+        launch_description_source=PythonLaunchDescriptionSource(
+            os.path.join(get_package_share_directory('slam_cartographer'), 
+                        'launch', 
+                        'sim_cartographer.launch.py'
+        )),
+    )
+    ld.add_action(cartographer_launch)
 
     return ld
 
