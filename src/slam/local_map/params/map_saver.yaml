@@ -1,0 +1,17 @@
+map_saver:
+  ros__parameters:
+    # 是否使用仿真时间。Gazebo/Ignition 仿真时设为 true，真机一般设为 false。
+    use_sim_time: true
+
+    # 保存地图时等待 /map 话题数据的超时时间，单位秒。
+    save_map_timeout: 5.0
+
+    # 空闲阈值。低于该概率的栅格会在保存地图时判定为空闲区域。
+    free_thresh_default: 0.25
+
+    # 占用阈值。高于该概率的栅格会在保存地图时判定为障碍物。
+    occupied_thresh_default: 0.65
+
+    # 是否用 transient local QoS 订阅地图。
+    # true 可以接收到 map server 或 SLAM 节点最近发布的一帧持久化地图。
+    map_subscribe_transient_local: true

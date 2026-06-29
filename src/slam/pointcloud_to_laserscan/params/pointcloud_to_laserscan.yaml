@@ -1,0 +1,18 @@
+pointcloud_to_laserscan:
+  ros__parameters:
+    input_topic: /scan/points
+    output_topic: /scan/points_to_scan
+    output_frame_id: ""
+
+    # 保留雷达坐标系 z 轴附近的点，形成一条水平单线扫描。
+    min_height: -0.15
+    max_height: 0.20
+
+    angle_min: -3.141592653589793
+    angle_max: 3.141592653589793
+    angle_increment: 0.0087
+    scan_time: 0.10
+    range_min: 0.20 # 最小有效距离，单位 m
+    range_max: 30.0 # 最大有效距离，单位 m
+    use_inf: true
+    inf_epsilon: 1.0

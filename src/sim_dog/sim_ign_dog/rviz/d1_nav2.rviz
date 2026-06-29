@@ -5,13 +5,13 @@ Panels:
     Property Tree Widget:
       Expanded:
         - /Global Options1
-        - /RobotModel1
         - /TF1/Frames1
         - /TF1/Tree1
         - /Map1/Topic1
         - /Global Planner1/Global Costmap1
         - /Controller1
         - /Path1
+        - /Marker1
       Splitter Ratio: 0.5861111283302307
     Tree Height: 448
   - Class: rviz_common/Selection
@@ -153,6 +153,16 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
+        base_link_top:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        camera:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
         front_camera:
           Alpha: 1
           Show Axes: false
@@ -162,6 +172,10 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
+        laser_device_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
         laser_up:
           Alpha: 1
           Show Axes: false
@@ -211,9 +225,11 @@ Visualization Manager:
           Value: true
         RR_KNEE_LINK:
           Value: true
-        base_footprint:
-          Value: true
         base_link:
+          Value: true
+        base_link_top:
+          Value: true
+        camera:
           Value: true
         d1_dog/base_footprint:
           Value: true
@@ -224,6 +240,8 @@ Visualization Manager:
         front_camera:
           Value: true
         laser:
+          Value: true
+        laser_device_frame:
           Value: true
         laser_up:
           Value: true
@@ -241,35 +259,37 @@ Visualization Manager:
           odom:
             d1_dog/odom:
               d1_dog/base_footprint:
-                base_footprint:
-                  base_link:
-                    FL_ABAD_LINK:
-                      FL_HIP_LINK:
-                        FL_KNEE_LINK:
-                          FL_FOOT_LINK:
-                            {}
-                    FR_ABAD_LINK:
-                      FR_HIP_LINK:
-                        FR_KNEE_LINK:
-                          FR_FOOT_LINK:
-                            {}
-                    RL_ABAD_LINK:
-                      RL_HIP_LINK:
-                        RL_KNEE_LINK:
-                          RL_FOOT_LINK:
-                            {}
-                    RR_ABAD_LINK:
-                      RR_HIP_LINK:
-                        RR_KNEE_LINK:
-                          RR_FOOT_LINK:
-                            {}
-                    front_camera:
-                      d1_dog/base_link/depth_camera:
-                        {}
+                base_link:
+                  FL_ABAD_LINK:
+                    FL_HIP_LINK:
+                      FL_KNEE_LINK:
+                        FL_FOOT_LINK:
+                          {}
+                  FR_ABAD_LINK:
+                    FR_HIP_LINK:
+                      FR_KNEE_LINK:
+                        FR_FOOT_LINK:
+                          {}
+                  RL_ABAD_LINK:
+                    RL_HIP_LINK:
+                      RL_KNEE_LINK:
+                        RL_FOOT_LINK:
+                          {}
+                  RR_ABAD_LINK:
+                    RR_HIP_LINK:
+                      RR_KNEE_LINK:
+                        RR_FOOT_LINK:
+                          {}
+                  base_link_top:
+                    camera:
+                      front_camera:
+                        d1_dog/base_link/depth_camera:
+                          {}
                     laser:
-                      {}
-                    laser_up:
-                      {}
+                      laser_device_frame:
+                        {}
+                  laser_up:
+                    {}
       Update Interval: 0
       Value: true
     - Alpha: 1
@@ -284,7 +304,7 @@ Visualization Manager:
       Color: 255; 255; 255
       Color Transformer: Intensity
       Decay Time: 0
-      Enabled: false
+      Enabled: true
       Invert Rainbow: false
       Max Color: 255; 255; 255
       Max Intensity: 0
@@ -294,7 +314,7 @@ Visualization Manager:
       Position Transformer: XYZ
       Selectable: true
       Size (Pixels): 3
-      Size (m): 0.009999999776482582
+      Size (m): 0.10000000149011612
       Style: Points
       Topic:
         Depth: 5
@@ -302,10 +322,10 @@ Visualization Manager:
         Filter size: 10
         History Policy: Keep Last
         Reliability Policy: Best Effort
-        Value: /scan
+        Value: /scan/filtered
       Use Fixed Frame: true
       Use rainbow: true
-      Value: false
+      Value: true
     - Alpha: 1
       Autocompute Intensity Bounds: true
       Autocompute Value Bounds:
@@ -714,7 +734,7 @@ Visualization Manager:
       Color: 255; 255; 255
       Color Transformer: Intensity
       Decay Time: 0
-      Enabled: true
+      Enabled: false
       Invert Rainbow: false
       Max Color: 255; 255; 255
       Max Intensity: 0
@@ -735,6 +755,19 @@ Visualization Manager:
         Value: /scan/points
       Use Fixed Frame: true
       Use rainbow: true
+      Value: false
+    - Class: rviz_default_plugins/Marker
+      Enabled: true
+      Name: Marker
+      Namespaces:
+        {}
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /scan_box_filter/box_marker
       Value: true
   Enabled: true
   Global Options:
@@ -781,25 +814,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz_default_plugins/XYOrbit
-      Distance: 12.829018592834473
+      Distance: 3.010266065597534
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 5.62601375579834
-        Y: 0.8556671142578125
-        Z: -2.9308939701877534e-06
+        X: 5.139913558959961
+        Y: -0.4793400764465332
+        Z: -3.169312549289316e-06
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 1.0697962045669556
+      Pitch: 0.5047965049743652
       Target Frame: <Fixed Frame>
       Value: XYOrbit (rviz_default_plugins)
-      Yaw: 0.14738845825195312
+      Yaw: 5.865572452545166
     Saved: ~
 Window Geometry:
   Displays:
@@ -819,5 +852,5 @@ Window Geometry:
   Views:
     collapsed: false
   Width: 1545
-  X: 319
-  Y: 77
+  X: 252
+  Y: 81

@@ -1,0 +1,29 @@
+scan_to_scan_filter_chain:
+  ros__parameters:
+    filter1:
+      name: self_box_filter
+      type: laser_filters/LaserScanBoxFilter
+      params:
+        # 在 laser_up 坐标系中剔除盒子内部的点，用于过滤机器人本体/近距离遮挡。
+        # LaserScan 投影后的点 z 约为 0，z 范围不能写成 0 到 0。
+        box_frame: laser_up
+        min_x: -0.25
+        max_x: 0.25
+        min_y: -0.2
+        max_y: 0.2
+        min_z: -0.5
+        max_z: 0.05
+        invert: false # invert: false 表示剔除盒子内部的点，invert: true 表示保留盒子内部的点。
+
+scan_box_filter_marker:
+  ros__parameters:
+    # 与上面的 LaserScanBoxFilter 保持一致，用于 RViz 可视化过滤盒子。
+    box_frame: laser_up
+    min_x: -0.25
+    max_x: 0.25
+    min_y: -0.2
+    max_y: 0.2
+    min_z: -0.5
+    max_z: 0.05
+    marker_topic: /scan_box_filter/box_marker
+    publish_rate: 5.0

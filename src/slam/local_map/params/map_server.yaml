@@ -1,0 +1,19 @@
+map_server:
+  ros__parameters:
+    # 是否使用仿真时间。Gazebo/Ignition 仿真时设为 true，真机一般设为 false。
+    use_sim_time: true
+
+    # 要加载的地图 yaml 文件路径。这里默认使用工作空间根目录 map/local_map.yaml。
+    yaml_filename: "/home/chiway/work_temp/ign_Agibot_d1_SuzhouResearchInstituteUpperClothing/map/local_map.yaml"
+
+map_server_lifecycle_manager:
+  ros__parameters:
+    # lifecycle manager 使用的时间源，需要和 map_server 保持一致。
+    use_sim_time: true
+
+    # 是否自动将 map_server 从 unconfigured 切到 active。
+    autostart: true
+
+    # 由该 lifecycle manager 管理的生命周期节点名称列表。
+    node_names:
+      - map_server

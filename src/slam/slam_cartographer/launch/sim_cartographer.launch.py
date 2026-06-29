@@ -71,9 +71,9 @@ def generate_launch_description():
             #设置目录文件
             '-configuration_basename',LaunchConfiguration('param_name'),
         ],
-        # remappings=[
-        #     ('/scan','/scan_real'),
-        # ]
+        remappings=[
+            ('/scan', '/scan/filtered'),
+        ]
     )
     ld.add_action(cartographer_node)
 

@@ -52,6 +52,11 @@ ros2 launch sim_ign_dog d1_gazebo_sim_dog.launch.py
 - 基坐标系 base_link
 - 雷达坐标系 laser_up
 
+- ign单线雷达 /scan
+- ign多线雷达 /scan/points
+- 多线转单线雷达  /scan/points_to_scan
+- 过滤器 /scan/filtered
+
 ## 问题描述
 
 > 当前在部分环境下,由于显卡与ign_gazebo的兼容性问题,会导致仿真环境无法正常启动,导致虚拟机崩溃
