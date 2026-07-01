@@ -58,8 +58,18 @@ def generate_launch_description():
     #获取当前功能包路径 
     this_package_path = get_package_share_directory('sim_ign_dog')
 
+    # 设置ign模型路径，包含自定义模型和功能包中的模型
     ign_models_path = 'ign_models'
-    ld.add_action(SetEnvironmentVariable('IGN_GAZEBO_RESOURCE_PATH', ign_models_path))
+    edu_share = get_package_share_directory('edu_description')
+    top_share = get_package_share_directory('agibot_d1_top_description')
+
+    resource_path = os.pathsep.join([ #pathsep是路径分隔符，Linux下为:，Windows下为;
+        ign_models_path,
+        edu_share,
+        top_share,
+    ])
+
+    ld.add_action(SetEnvironmentVariable('IGN_GAZEBO_RESOURCE_PATH', resource_path))
 
     """
     编辑.bashrc文件,添加环境变量 (在当前launch文件中已经设置了环境变量,无需当前操作)
@@ -87,7 +97,7 @@ def generate_launch_description():
     dog_description_node = IncludeLaunchDescription(
         launch_description_source=PythonLaunchDescriptionSource(
             os.path.join(
-                get_package_share_directory('agibot_d1_top_description'),
+                top_share,
                 'launch',
                 'sim_display_launch.py'
             )
@@ -208,7 +218,6 @@ def generate_launch_description():
 
     #启动cham
     config_pkg_share = os.path.join(get_package_share_directory('edu_config'))
-    descr_pkg_share = os.path.join(get_package_share_directory('agibot_d1_top_description'))
     
     cham_bringup_launch = IncludeLaunchDescription(
         launch_description_source=PythonLaunchDescriptionSource(
@@ -233,7 +242,7 @@ def generate_launch_description():
             # "publish_foot_contacts": "false",
             # "close_loop_odom": "true",
             'use_sim_time': 'true',
-            'description_path': os.path.join(descr_pkg_share,'urdf','edu.urdf'),
+            'description_path': os.path.join(top_share,'urdf','edu_top.urdf.xacro'),
             'rviz': 'false',#仿真环境已经启动rviz了
             'gazebo': 'true',#在gazebo中运行
             'base_link_frame': 'base_link',#d1_dog模型为base_link
