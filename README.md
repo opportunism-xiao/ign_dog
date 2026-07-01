@@ -98,6 +98,18 @@ ros2 run teleop_twist_keyboard teleop_twist_keyboard
 ros2 launch sim_ign_dog d1_gazebo_sim_dog.launch.py 
 ```
 
+### 测试程序
+
+练习节点,使用节点发布导航目标点,测试 Nav2 的导航功能:
+
+```bash
+source install/setup.bash
+ros2 run pub_nav_goal pub_point --ros-args \
+  -p goal_x:=7.0 \
+  -p goal_y:=-1.0 \
+  -p goal_yaw:=0.0
+```
+
 ## 关键配置
 
 - 离线地图: `map/local_map.yaml`
