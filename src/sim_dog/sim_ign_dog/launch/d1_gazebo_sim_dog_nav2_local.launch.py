@@ -63,10 +63,12 @@ def generate_launch_description():
     edu_share = get_package_share_directory('edu_description')
     top_share = get_package_share_directory('agibot_d1_top_description')
 
+    # model://<package_name>/... 需要资源路径指向上级目录（例如 .../share），不能直接指向 .../share/<package_name>
     resource_path = os.pathsep.join([ #pathsep是路径分隔符，Linux下为:，Windows下为;
         ign_models_path,
-        edu_share,
-        top_share,
+        os.path.dirname(edu_share),
+        os.path.dirname(top_share),
+        os.environ.get('IGN_GAZEBO_RESOURCE_PATH', '')
     ])
 
     ld.add_action(SetEnvironmentVariable('IGN_GAZEBO_RESOURCE_PATH', resource_path))
