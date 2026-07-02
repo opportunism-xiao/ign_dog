@@ -914,7 +914,7 @@
   <gazebo>
     <plugin filename="gz_ros2_control-system"
             name="gz_ros2_control::GazeboSimROS2ControlPlugin">
-      <parameters>$(find sim_ign_dog)/config/d1_controllers.yaml</parameters>
+      <parameters>$(find edu_config)/config/ros2_control/d1_controllers.yaml</parameters>
       <robot_param>robot_description</robot_param>
       <robot_param_node>robot_state_publisher</robot_param_node>
     </plugin>
