@@ -140,6 +140,7 @@ def generate_launch_description():
             '/depth_camera/points@sensor_msgs/msg/PointCloud2[gz.msgs.PointCloudPacked', #深度相机点云数据
             '/image_raw@sensor_msgs/msg/Image[gz.msgs.Image', #图像参数
             '/camera_info@sensor_msgs/msg/CameraInfo[gz.msgs.CameraInfo',#相机参数
+            'imu@sensor_msgs/msg/Imu[gz.msgs.IMU', #IMU数据
         ],
         # parameters=[{"qos_overrides./model/d1_dog.subscriber.reliability": "reliable"}],
         remappings=[

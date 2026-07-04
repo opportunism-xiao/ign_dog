@@ -179,6 +179,11 @@
       <render_engine>ogre2</render_engine>
     </plugin>
   </gazebo>
+  <gazebo>
+    <plugin filename="libignition-gazebo-imu-system.so"
+        name="ignition::gazebo::systems::Imu">
+    </plugin>
+  </gazebo>
 
   <gazebo reference="laser_up">
     <sensor name="scan" type="gpu_lidar">
@@ -255,4 +260,15 @@
       <ignition_frame_id>front_camera</ignition_frame_id>
     </sensor>
   </gazebo>
+  <gazebo reference="base_link_top">
+      <sensor name="imu_sensor" type="imu">
+          <always_on>1</always_on>
+          <update_rate>100</update_rate>
+          <visualize>true</visualize>
+          <topic>imu</topic>
+      </sensor>
+  </gazebo>
+
+
+    
 </robot>
