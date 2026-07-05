@@ -23,7 +23,7 @@
 ### 克隆本仓库
 
 ```bash
-git clone --recursive https://github.com/opportunism-xiao/ign_robot_dog.git
+git clone https://github.com/opportunism-xiao/ign_robot_dog.git
 
 ### 安装依赖
 
