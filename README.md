@@ -23,8 +23,7 @@
 ### 克隆本仓库
 
 ```bash
-git clone https://github.com/chiway-luo/ign_robot_dog.git -b ign_agibot_d1_SuZhouResearchInstituteUpperClothing
-```
+git clone --recursive https://github.com/opportunism-xiao/ign_robot_dog.git
 
 ### 安装依赖
 
