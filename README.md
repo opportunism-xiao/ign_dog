@@ -98,6 +98,14 @@ ros2 run teleop_twist_keyboard teleop_twist_keyboard
 ros2 launch sim_ign_dog d1_gazebo_sim_dog.launch.py 
 ```
 
+### 启动3D建图功能
+
+```bash
+ros2 launch fast_lio mapping.launch.py
+```
+
+![](.docs/image1.png)
+
 ### 测试程序
 
 练习节点,使用节点发布导航目标点,测试 Nav2 的导航功能:

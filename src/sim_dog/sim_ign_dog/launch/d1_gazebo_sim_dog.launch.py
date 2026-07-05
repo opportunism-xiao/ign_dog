@@ -89,7 +89,7 @@ def generate_launch_description():
         ),
         launch_arguments={# -v 是指日志等级 4 是最高等级的日志 -r 是指自动运行仿真
             # 'gz_args': f"-v 4 -r {os.path.join(demo_gazebo_sim_path,'world','house.sdf')}" #原始墙壁模型
-            'gz_args': f"-r {os.path.join(this_package_path,'world','house_add.sdf')}" #添加家具的房子模型, -r 表示自动运行
+            'gz_args': f"-r {os.path.join(this_package_path,'world','slam_house.sdf')}" #添加家具的房子模型, -r 表示自动运行
             # 'gz_args': f"-v 4 -r {os.path.join(get_package_share_directory('demo_gazebo_sim'),'world','visualize_lidar.sdf')}"
         }.items()
     )
