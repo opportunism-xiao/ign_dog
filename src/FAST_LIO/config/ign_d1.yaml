@@ -1,0 +1,63 @@
+/**:
+    ros__parameters:
+        feature_extract_enable: true
+        point_filter_num: 1             # use every point for stronger constraints
+        max_iteration: 3
+        filter_size_surf: 0.2
+        filter_size_map: 0.2
+        cube_side_length: 10.0
+        runtime_pos_log_enable: false
+        map_file_path: "./test.pcd"
+
+        common:
+            lid_topic:  "/scan/points"
+            imu_topic:  "/imu"
+            time_sync_en: false
+            time_offset_lidar_to_imu: 0.0
+
+        preprocess:
+            # 0 = default_handler. 不能用 2(VELO16)!
+            #     velodyne_handler 按 ring-major 顺序推算逐点时间戳，
+            #     但 Ignition gpu_lidar 输出是 angle-major 排列，
+            #     导致 yaw→time 计算错误 600 倍，运动时去畸变崩溃→飞天。
+            #     default_handler 不做逐点时间偏移，10Hz 帧率下一帧内
+            #     运动畸变可忽略（最大 0.1s 内的位移）。
+            lidar_type: 0
+            scan_line: 32
+            blind: 0.20                 # just above gpu_lidar min_range (0.08)
+            timestamp_unit: 0           # seconds
+            scan_rate: 10
+
+        mapping:
+            # simulation IMU has ZERO noise → high trust (small covariance)
+            acc_cov: 0.5
+            gyr_cov: 0.5
+            b_acc_cov: 0.000001          # no IMU bias in sim → estimate slowly
+            b_gyr_cov: 0.000001
+            fov_degree:    360.0
+            det_range:     10.0
+            # CRITICAL: disable online estimation during debug.
+            # With wrong initial extrinsic, the estimator diverges → float to sky.
+            extrinsic_est_en:  false
+            # IMU frame_id = d1_dog/base_link/imu_sensor
+            # LiDAR frame_id = laser_up
+            # Both frames are rotation-aligned with base_link (rpy=0,0,0).
+            #   laser_up in base_link: (0, 0, 0.15)
+            #   IMU(base_link_top) in base_link: (-0.009, 0, 0.0748)
+            #   T_imu_lidar = LiDAR_pos_in_IMU = (0 - (-0.009), 0, 0.15 - 0.0748)
+            extrinsic_T: [ 0.009, 0.0, 0.0752 ]
+            extrinsic_R: [ 1., 0., 0.,
+                           0., 1., 0.,
+                           0., 0., 1.]
+
+        publish:
+            path_en: true
+            effect_map_en: false
+            map_en: true
+            scan_publish_en:  true
+            dense_publish_en: false
+            scan_bodyframe_pub_en: true
+
+        pcd_save:
+            pcd_save_en: true
+            interval: -1
